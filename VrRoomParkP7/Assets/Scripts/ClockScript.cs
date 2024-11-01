@@ -16,19 +16,22 @@ public class ClockScript : MonoBehaviour
     void Start()
     {
         int hoursInClock = 360 / 12;
-        int minutes = 360 / 1440;
+        
 
         int currentSeconds = DateTime.Now.Second;
         int currentMinutes = DateTime.Now.Minute;
         int currentHour = DateTime.Now.Hour;
         hourHand.transform.Rotate(0, currentHour * hoursInClock , 0);
-        minuteHand.transform.Rotate(0, currentMinutes * minutes, 0);
+        minuteHand.transform.Rotate(0, 360 *currentMinutes, 0);
+
 
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        secondHand.transform.Rotate(0, 0.12f, 0);
+        minuteHand.transform.Rotate(0, 0.002f, 0);
+        hourHand.transform.Rotate(0, 0.000033333333f, 0);
     }
 }
